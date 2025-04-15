@@ -18,6 +18,7 @@ export const TableView = (props) => {
             fullName={item.fullName}
             telephone={item.telephone}
             notes={item.notes}
+            remove={props.removeContact}
           />
         ))}
       </tbody>
