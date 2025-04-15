@@ -1,6 +1,6 @@
 import { TableRowItem } from "./components/TableRowItem";
 
-export const TableView = () => {
+export const TableView = (props) => {
   return (
     <table className="table table-hover">
       <thead>
@@ -12,10 +12,14 @@ export const TableView = () => {
         </tr>
       </thead>
       <tbody>
-        <TableRowItem />
-        <TableRowItem />
-        <TableRowItem />
-        <TableRowItem />
+        {props.data.map((item) => (
+          <TableRowItem
+            id={item.id}
+            fullName={item.fullName}
+            telephone={item.telephone}
+            notes={item.notes}
+          />
+        ))}
       </tbody>
     </table>
   );

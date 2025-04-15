@@ -1,10 +1,10 @@
-export const TableRowItem = () => {
+export const TableRowItem = ({ id, fullName, telephone, notes }) => {
   return (
     <tr>
-      <th scope="row">2</th>
-      <td>ФИО 2</td>
-      <td>Телефон 2</td>
-      <td>Заметка 2</td>
+      <th scope="row">{id}</th>
+      <td>{fullName}</td>
+      <td>{telephone}</td>
+      <td>{notes}</td>
     </tr>
   );
 };
