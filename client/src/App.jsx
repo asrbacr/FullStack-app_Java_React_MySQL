@@ -11,10 +11,17 @@ function App() {
   ]);
 
   const appendContact = (fullName, telephone, notes) => {
-    const itemsId = items.length + 1;
+    const length = items.length;
+    let currentId = 0;
+
+    if (length === 0) {
+      currentId = 1;
+    } else {
+      currentId = items[length - 1].id + 1;
+    }
 
     const temp = {
-      id: itemsId,
+      id: currentId,
       fullName: fullName,
       telephone: telephone,
       notes: notes,
@@ -32,7 +39,9 @@ function App() {
         <div className="card-header">
           <h1>Список контактов</h1>
         </div>
-        <div className="card-body">{<TableView data={items} removeContact={removeContact}/>}</div>
+        <div className="card-body">
+          {<TableView data={items} removeContact={removeContact} />}
+        </div>
         <div>{<FormNewItem appendContact={appendContact} />}</div>
       </div>
     </div>
