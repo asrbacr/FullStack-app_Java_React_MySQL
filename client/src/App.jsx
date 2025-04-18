@@ -28,15 +28,7 @@ function App() {
   }, []);
 
   const appendContact = (fullName, telephone, notes) => {
-    // const length = items.length;
-    // let currentId = 0;
-
-    // if (length === 0) {
-    //   currentId = 1;
-    // } else {
-    //   currentId = items[length - 1].id + 1;
-    // }
-
+ 
     const temp = {
       // id: currentId,
       fullName: fullName,
@@ -45,8 +37,11 @@ function App() {
     };
 
     const url = `http://localhost:9000/api/contacts`;
-    axios.post(url, temp);
-    setItems([...items, temp]);
+    axios.post(url, temp)
+      .then(e => {
+        temp.id = e.data.id;
+        setItems([...items, temp]);
+      });
   };
 
   const removeContact = (id) => {

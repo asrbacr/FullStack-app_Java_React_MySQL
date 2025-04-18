@@ -12,13 +12,14 @@ export const TableView = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.data.map((item) => (
+        {props.data.map((item, index) => (
           <TableRowItem key={item.id}
             id={item.id}
             fullName={item.fullName}
             telephone={item.telephone}
             notes={item.notes}
             remove={props.removeContact}
+            index = {index + 1}
           />
         ))}
       </tbody>
