@@ -1,4 +1,5 @@
 import { useState } from "react";
+import s from "./FormNewItem.module.scss";
 
 export const FormNewItem = ({ appendContact }) => {
   const [fullName, setFullName] = useState("");
@@ -15,41 +16,44 @@ export const FormNewItem = ({ appendContact }) => {
   };
 
   return (
-    <div className="mt-3">
-      <form action="">
-        <div className="mb-3">
-          <label className="form-label">ФИО</label>
-          <input
-            className="form-control"
-            type="text"
-            value={fullName}
-            onChange={(e) => {
-              setFullName(e.target.value);
-            }}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Телефон</label>
-          <input
-            className="form-control"
-            type="text"
-            value={telephone}
-            onChange={(e) => {
-              setTelephone(e.target.value);
-            }}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Заметки</label>
-          <textarea
-            className="form-control"
-            rows={3}
-            value={notes}
-            onChange={(e) => {
-              setNotes(e.target.value);
-            }}
-          />
-        </div>
+    <div className="mt-3 p-3">
+      <form className="table">
+        <tr className={`${s.div} gap-3`} >
+          <th className="mb-3">
+            <label className="form-label">ФИО</label>
+            <input
+              className="form-control"
+              type="text"
+              value={fullName}
+              onChange={(e) => {
+                setFullName(e.target.value);
+              }}
+            />
+          </th>
+          <th className="mb-3">
+            <label className="form-label">Телефон</label>
+            <input
+              className="form-control"
+              type="text"
+              value={telephone}
+              onChange={(e) => {
+                setTelephone(e.target.value);
+              }}
+            />
+          </th>
+          <th className="mb-3">
+            <label className="form-label">Заметки</label>
+            <textarea
+              className="form-control"
+              cols={70}
+              rows={3}
+              value={notes}
+              onChange={(e) => {
+                setNotes(e.target.value);
+              }}
+            />
+          </th>
+        </tr>
         <button type="button" className="btn btn-primary" onClick={submit}>
           Новый контакт
         </button>
